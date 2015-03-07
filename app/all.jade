@@ -1,0 +1,17 @@
+h3.text-center {{title}}
+a.btn.btn-default(href="#/new" role="button") Добавить
+table.table.table-bordered
+	tr
+		th #
+		th Имя
+		th Фамилия
+		th Телефон
+		th e-mail
+	tr(ng-repeat="user in contacts")
+		td
+			a(href="#/user/{{user.id}}") {{user.id}}
+		td {{user.name}}
+		td {{user.lastname}}
+		td {{user.tel}}
+		td {{user.mail}}
+p Всего: {{contacts.length}}
