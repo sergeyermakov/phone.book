@@ -58,3 +58,4 @@ $ gulp production
 [Bower]:http://bower.io/
 [AngularJS]:http://angularjs.org
 [Gulp]:http://gulpjs.com
+[git-repo-url]:https://github.com/Xaosaki/phone.book.git
