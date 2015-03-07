@@ -1,0 +1,44 @@
+doctype html
+<!--[if lt IE 7]> <html lang="ru" ng-app="dz4" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="ru" ng-app="dz4" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="ru" ng-app="dz4" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ru" ng-app="dz4" class="no-js"> <!--<![endif]-->
+head
+	meta(charset="utf-8")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge")
+	title My AngularJS App
+	// build:css style/vendor.css
+	// bower:css
+	link(rel='stylesheet', href='../bower_components/bootstrap/dist/css/bootstrap.css')
+	// endbower
+	// endbuild
+	// build:js style/app.css
+	link(rel="stylesheet" href="style/style.css")
+	// endbuild
+body
+	.ng-view
+		a(class="btn btn-default" href="#" role="button") Test
+		a(class="btn btn-default" href="#" role="button") Test
+		a(class="btn btn-default" href="#" role="button") Test
+		a(class="btn btn-default" href="#" role="button") Test
+		a(class="btn btn-default" href="#" role="button") Test
+		a(class="btn btn-default" href="#" role="button") Test
+
+
+	//Подключаем скрипты
+	//Системные
+	// build:js script/vendor.js
+	// bower:js
+	script(src='../bower_components/jquery/dist/jquery.js')
+	script(src='../bower_components/angular/angular.js')
+	script(src='../bower_components/angular-route/angular-route.js')
+	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+	script(src='../bower_components/firebase/firebase.js')
+	script(src='../bower_components/angularfire/dist/angularfire.js')
+	// endbower
+	// endbuild
+	//Пользовательские
+	// build:js script/app.js
+	script(src="scripts/app.js")
+	script(src="scripts/controllers/contacts-list.js")
+	// endbuild

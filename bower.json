@@ -1,0 +1,22 @@
+{
+  "name": "phone.book",
+  "version": "0.0.1",
+  "authors": [
+    "Xaosaki <xaosaki@gmail.com>"
+  ],
+  "description": "dz4",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.3.14",
+    "angular-route": "~1.3.14",
+    "bootstrap": "~3.3.2",
+    "firebase": "~2.2.2",
+    "angularfire": "~1.0.0"
+  }
+}
