@@ -8,7 +8,10 @@ var gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	connect = require('gulp-connect'),
 	assets = useref.assets(),
+	runSequence = require('run-sequence'),
 	wiredep = require('wiredep').stream;
+
+gulp.task('default', ['develop']);
 
 //develop сборка
 	//подключение bower_components
@@ -60,32 +63,16 @@ var gulp = require('gulp'),
 			livereload: true // автоматический перезапуск
 		})
 	});
-
-
-	gulp.task('develop', ['clean:develop','bower','scripts', 'styles', 'templates','images']);
-
-	gulp.task('default', ['develop']);
-
-
-
+	gulp.task('develop', function() {
+		runSequence('clean:develop',['scripts', 'styles', 'templates', 'images'],'bower');
+	});
 
 //production сборка
-
-	gulp.task('prod_styles', function () {
-		return gulp.src('./develop/style/*.css')
-			.pipe(minifyCss())
-			.pipe(gulp.dest('production/style'));
-	});
-	gulp.task('prod_js', function () {
-		return gulp.src('./develop/script/*.js')
-			.pipe(uglify())
-			.pipe(gulp.dest('production/script'));
-	});
 	gulp.task('prod_img', function(){
 		gulp.src('./develop/style/img/*.*')
 			.pipe(gulp.dest('production/style/img'));
 	});
-	gulp.task('production', ['clean:prod','prod_styles','prod_js', 'prod_img'], function () {
+	gulp.task('prod_templates', function () {
 		return gulp.src('develop/*.html')
 			.pipe(assets)
 			.pipe(gulpif('*.js', uglify()))
@@ -93,6 +80,9 @@ var gulp = require('gulp'),
 			.pipe(assets.restore())
 			.pipe(useref())
 			.pipe(gulp.dest('production'));
+	});
+	gulp.task('production', function() {
+		runSequence('clean:production',['prod_img'],'prod_templates');
 	});
 
 
