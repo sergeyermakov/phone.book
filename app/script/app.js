@@ -51,9 +51,10 @@ pbApp.controller('UserCtrl',['$scope', '$routeParams', 'firebaseFactory', functi
 	$scope.contactsDel = function(obj){
 		firebaseFactory.contactsDel();
 	}
-	//$scope.contactsEdit = function(){
-	//	firebaseFactory.contactsEdit();
-	//}
+	//Изменение контакта
+	$scope.contactsEdit = function(obj){
+		firebaseFactory.contactsEdit(obj);
+	}
 
 
 
@@ -84,10 +85,10 @@ pbApp.factory('firebaseFactory', ['fbURL','$firebaseObject','$firebaseArray', fu
 	fb.contactsDel= function(obj){
 		return $firebaseObject(ref).$remove(obj);
 	}
-	////Изменение контакта
-	//fb.contactsEdit= function(){
-	//	return $firebaseObject(ref).$save();
-	//}
+	//Изменение контакта
+	fb.contactsEdit= function(obj){
+		return obj.$save();
+	}
 
 
 	return fb;
