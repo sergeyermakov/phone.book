@@ -32,16 +32,16 @@ pbApp.controller('ListCtrl',['$scope', '$rootScope', '$location','firebaseFactor
 	$scope.contacts = firebaseFactory.contactsList();
 }]);
 
-pbApp.controller('NewCtrl',['$scope','firebaseFactory', function ($scope, firebaseFactory) {
+pbApp.controller('NewCtrl',['$scope','firebaseFactory','redirectFactory', function ($scope, firebaseFactory, redirectFactory) {
 	$scope.title = "Новый контакт";
 	//Добавление контакта
 	$scope.contactsAdd = function(arr){
-		firebaseFactory.contactsAdd(arr);
+		firebaseFactory.contactsAdd(arr).then(redirectFactory.redirectMain());
 	}
 
 }]);
 
-pbApp.controller('UserCtrl',['$scope', '$routeParams', 'firebaseFactory', function ($scope, $routeParams,firebaseFactory) {
+pbApp.controller('UserCtrl',['$scope', '$routeParams', 'firebaseFactory','redirectFactory', '$location','$rootScope', function ($scope, $routeParams,firebaseFactory,redirectFactory,$location,$rootScope) {
 	$scope.title = "Изменить контакт";
 	//Вывод полной информации о контакте
 	var id =  $routeParams.userId;
@@ -49,11 +49,11 @@ pbApp.controller('UserCtrl',['$scope', '$routeParams', 'firebaseFactory', functi
 	$scope.user = firebaseFactory.contactsInfo(id);
 	//Удаление контакта
 	$scope.contactsDel = function(obj){
-		firebaseFactory.contactsDel();
+		firebaseFactory.contactsDel().then(redirectFactory.redirectMain());
 	}
 	//Изменение контакта
 	$scope.contactsEdit = function(obj){
-		firebaseFactory.contactsEdit(obj);
+		firebaseFactory.contactsEdit(obj).then(redirectFactory.redirectMain());
 	}
 
 
@@ -92,4 +92,12 @@ pbApp.factory('firebaseFactory', ['fbURL','$firebaseObject','$firebaseArray', fu
 
 
 	return fb;
+}]);
+
+pbApp.factory('redirectFactory', ['$location', function($location){
+	var rf = {};
+	rf.redirectMain = function(){
+		return $location.path('/');
+	}
+	return rf;
 }]);
