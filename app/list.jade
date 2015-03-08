@@ -9,9 +9,8 @@ table.table.table-bordered
 		th e-mail
 	tr(ng-repeat="user in contacts")
 		td
-			a(href="#/user/{{user.$id}}") {{user.id}}
+			a(href="#/user/{{user.$id}}") {{$index+1}}
 		td {{user.name}}
 		td {{user.lastname}}
 		td {{user.tel}}
 		td {{user.mail}}
-p Всего: {{contacts.length}}

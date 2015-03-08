@@ -1,23 +1,23 @@
 h3.text-center {{title}}
-h3 Контакт # {{id}}
+h3 Контакт # {{user.$id}}
 form
 	.row
 		.form-group
 			label(for="InputName") Имя
-			input.form-control(type="text" id="InputName" name="InputName" placeholder="Имя контакта" value="{{user.name}}")
+			input.form-control(type="text" id="InputName" name="InputName" placeholder="Имя контакта" ng-model="user.name" value="{{user.name}}")
 	.row
 		.form-group
-			label(for="InputLastName") Имя
-			input.form-control(type="text" id="InputLastName" name="InputLastName" placeholder="Фамилия контакта" value="{{user.lastname}}")
+			label(for="InputLastName") Фамилия
+			input.form-control(type="text" id="InputLastName" name="InputLastName" placeholder="Фамилия контакта" ng-model="user.lastname" value="{{user.lastname}}")
 	.row
 		b Контактная информация
 		.input-group.contact__input
 			.input-group-addon
 				i.glyphicon.glyphicon-envelope
-			input.form-control(type="text" id="InputMail" placeholder="example@gmail.com" value="{{user.mail}}")
+			input.form-control(type="text" id="InputMail" placeholder="example@gmail.com" ng-model="user.mail" value="{{user.mail}}")
 		.input-group.contact__input
 			.input-group-addon
 				i.glyphicon.glyphicon-phone
-			input.form-control(type="text" id="InputPhone" placeholder="+7 978 657 75 64" value="{{user.tel}}")
-	button.btn.btn-success(type="submit") Сохранить
-	button.btn.btn-danger(type="submit") Удалить
+			input.form-control(type="text" id="InputPhone" placeholder="+7 978 657 75 64" ng-model="user.tel" value="{{user.tel}}")
+	//button.btn.btn-success(type="submit" ng-click="contactsEdit()") Сохранить
+	button.btn.btn-danger(type="submit" ng-click="contactsDel(user)") Удалить
