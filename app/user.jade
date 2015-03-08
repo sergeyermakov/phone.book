@@ -1,2 +1,23 @@
 h3.text-center {{title}}
-h3 Контакт # {{userId}}
+h3 Контакт # {{id}}
+form
+	.row
+		.form-group
+			label(for="InputName") Имя
+			input.form-control(type="text" id="InputName" name="InputName" placeholder="Имя контакта" value="{{user.name}}")
+	.row
+		.form-group
+			label(for="InputLastName") Имя
+			input.form-control(type="text" id="InputLastName" name="InputLastName" placeholder="Фамилия контакта" value="{{user.lastname}}")
+	.row
+		b Контактная информация
+		.input-group.contact__input
+			.input-group-addon
+				i.glyphicon.glyphicon-envelope
+			input.form-control(type="text" id="InputMail" placeholder="example@gmail.com" value="{{user.mail}}")
+		.input-group.contact__input
+			.input-group-addon
+				i.glyphicon.glyphicon-phone
+			input.form-control(type="text" id="InputPhone" placeholder="+7 978 657 75 64" value="{{user.tel}}")
+	button.btn.btn-success(type="submit") Сохранить
+	button.btn.btn-danger(type="submit") Удалить

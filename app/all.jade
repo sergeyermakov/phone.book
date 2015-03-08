@@ -9,7 +9,7 @@ table.table.table-bordered
 		th e-mail
 	tr(ng-repeat="user in contacts")
 		td
-			a(href="#/user/{{user.id}}") {{user.id}}
+			a(href="#/user/{{user.$id}}") {{user.id}}
 		td {{user.name}}
 		td {{user.lastname}}
 		td {{user.tel}}
