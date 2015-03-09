@@ -38,6 +38,9 @@ pbApp.controller('NewCtrl',['$scope','firebaseFactory','redirectFactory', functi
 	$scope.contactsAdd = function(arr){
 		firebaseFactory.contactsAdd(arr).then(redirectFactory.redirectMain());
 	}
+	$scope.goBack = function(){
+		redirectFactory.redirectMain();
+	}
 
 }]);
 
@@ -48,7 +51,7 @@ pbApp.controller('UserCtrl',['$scope', '$routeParams', 'firebaseFactory','redire
 	$scope.id = id;
 	$scope.user = firebaseFactory.contactsInfo(id);
 	//Удаление контакта
-	$scope.contactsDel = function(obj){
+	$scope.contactsDel = function(){
 		firebaseFactory.contactsDel().then(redirectFactory.redirectMain());
 	}
 	//Изменение контакта
@@ -82,8 +85,8 @@ pbApp.factory('firebaseFactory', ['fbURL','$firebaseObject','$firebaseArray', fu
 		return $firebaseObject(ref);
 	}
 	//Удаление контакта
-	fb.contactsDel= function(obj){
-		return $firebaseObject(ref).$remove(obj);
+	fb.contactsDel= function(){
+		return $firebaseObject(ref).$remove();
 	}
 	//Изменение контакта
 	fb.contactsEdit= function(obj){
