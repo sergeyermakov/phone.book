@@ -3,7 +3,8 @@ html(ng-app="pbApp")
 	head
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		title My AngularJS App
+		title Phone book
+		link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
 		// build:css style/vendor.css
 		// bower:css
 		link(rel='stylesheet', href='../bower_components/bootstrap/dist/css/bootstrap.css')
@@ -26,12 +27,14 @@ html(ng-app="pbApp")
 		//Системные
 		// build:js script/vendor.js
 		// bower:js
+		script(src='../bower_components/es5-shim/es5-shim.js')
 		script(src='../bower_components/jquery/dist/jquery.js')
 		script(src='../bower_components/angular/angular.js')
 		script(src='../bower_components/angular-route/angular-route.js')
 		script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
 		script(src='../bower_components/firebase/firebase.js')
 		script(src='../bower_components/angularfire/dist/angularfire.js')
+		script(src='../bower_components/angular-file-upload/angular-file-upload.js')
 		// endbower
 		// endbuild
 		//Пользовательские

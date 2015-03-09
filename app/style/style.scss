@@ -1,8 +1,6 @@
-.s{
-  color: #000011;
-  .out{
-	color: #8b1407;
-  }
+body{
+  background: url("img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 .container a.btn{
   margin-bottom: 5px;
@@ -10,4 +8,14 @@
 .contact__input{
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.container table{
+  background: #edebed;
+}
+
+.input-group-addon{
+  min-width: 40px;
+}
+.table-hover td{
+  cursor: pointer;
 }

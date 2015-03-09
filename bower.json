@@ -1,6 +1,6 @@
 {
   "name": "phone.book",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "authors": [
     "Xaosaki <xaosaki@gmail.com>"
   ],
@@ -17,6 +17,7 @@
     "angular-route": "~1.3.14",
     "bootstrap": "~3.3.2",
     "firebase": "~2.2.2",
-    "angularfire": "~1.0.0"
+    "angularfire": "~1.0.0",
+    "angular-file-upload": "~1.1.5"
   }
 }

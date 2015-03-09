@@ -1,16 +1,27 @@
 h3.text-center {{title}}
 a.btn.btn-default(href="#/new" role="button") Добавить
-table.table.table-bordered
-	tr
-		th #
-		th Имя
-		th Фамилия
-		th Телефон
-		th e-mail
-	tr(ng-repeat="user in contacts")
-		td
-			a(href="#/user/{{user.$id}}") {{$index+1}}
-		td {{user.name}}
-		td {{user.lastname}}
-		td {{user.tel}}
-		td {{user.mail}}
+button.btn.btn-default( ng-click="table = true") Таблица
+button.btn.btn-default( ng-click="table = false") Блоки
+div(ng-show="table")
+	table.table.table-bordered.table-hover
+		thead
+			tr
+				th #
+				th Имя
+				th Фамилия
+				th Телефон
+				th e-mail
+		tbody
+			tr(ng-repeat="user in contacts" ng-click="goUser(user.$id)")
+				td {{$index+1}}
+				td {{user.name}}
+				td {{user.lastname}}
+				td {{user.tel}}
+				td {{user.mail}}
+div(ng-show="!table")
+	div(ng-repeat="user in contacts" ng-click="goUser(user.$id)")
+				p {{$index+1}}
+				p {{user.name}}
+				p {{user.lastname}}
+				p {{user.tel}}
+				p {{user.mail}}

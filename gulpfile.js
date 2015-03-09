@@ -44,17 +44,24 @@ gulp.task('default', ['develop']);
 			.pipe(gulp.dest('develop/script/')) // путь до сформированного файла
 			.pipe(connect.reload()); // перезагружаем сервер
 	});
+	//php
+	gulp.task('php', function() {
+		return gulp.src('./app/php/*.*')
+			.pipe(gulp.dest('develop/php/')) // путь до сформированного файла
+			.pipe(connect.reload()); // перезагружаем сервер
+	});
 	//картинки
 	gulp.task('images', function(){
 		gulp.src('./app/style/img/*.*')
 			.pipe(gulp.dest('develop/style/img'));
 	});
 	//watcher
-	gulp.task('watch', ['bower','styles', 'scripts', 'templates','images'], function() {
+	gulp.task('watch', ['bower','styles', 'scripts', 'templates','images','php'], function() {
 		gulp.watch('./app/*.jade', ['templates']);
 		gulp.watch('./app/script/app.js', ['scripts']);
 		gulp.watch('./app/style/style.scss', ['styles']);
 		gulp.watch('./app/style/img/*.*', ['images']);
+		gulp.watch('./app/php/*.*', ['php']);
 	});
 	//сервер
 	gulp.task('server', ['watch'], function() {
@@ -64,13 +71,18 @@ gulp.task('default', ['develop']);
 		})
 	});
 	gulp.task('develop', function() {
-		runSequence('clean:develop',['scripts', 'styles', 'templates', 'images'],'bower');
+		runSequence('clean:develop',['scripts', 'styles', 'templates', 'images','php'],'bower');
 	});
 
 //production сборка
 	gulp.task('prod_img', function(){
 		gulp.src('./develop/style/img/*.*')
 			.pipe(gulp.dest('production/style/img'));
+	});
+	//php
+	gulp.task('prod_php', function() {
+		gulp.src('./develop/php/*.*')
+			.pipe(gulp.dest('production/php/'));
 	});
 	gulp.task('prod_templates', function () {
 		return gulp.src('develop/*.html')
@@ -82,7 +94,7 @@ gulp.task('default', ['develop']);
 			.pipe(gulp.dest('production'));
 	});
 	gulp.task('production', function() {
-		runSequence('clean:production',['prod_img'],'prod_templates');
+		runSequence('clean:production',['prod_img','prod_php'],'prod_templates');
 	});
 
 
