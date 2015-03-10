@@ -27,8 +27,8 @@ pbApp.config(['$routeProvider', function($routeProvider){
 //Controllers
 
 pbApp.controller('ListCtrl',['$scope', '$rootScope', '$location','firebaseFactory','redirectFactory', function ($scope,$rootScope, $location,firebaseFactory,redirectFactory ) {
-	$scope.title = "Контакты";
 	$scope.table = true;
+	$scope.title = "Контакты";
 	//Список всех контактов
 	$scope.contacts = firebaseFactory.contactsList();
 

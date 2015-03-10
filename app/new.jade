@@ -1,28 +1,29 @@
 h3.text-center {{title}}
-form
-	.row
-		.form-group
-			label(for="InputName") Имя
-			input.form-control(type="text" name="InputName" ng-model="user.name" placeholder="Имя контакта")
-	.row
-		.form-group
-			label(for="InputLastName") Фамилия
-			input.form-control(type="text" name="InputLastName" ng-model="user.lastname" placeholder="Фамилия контакта")
-	.row
-		b Контактная информация
-		.input-group.contact__input
-			.input-group-addon
-				i.fa.fa-envelope
-			input.form-control(type="text" id="InputMail" ng-model="user.mail" placeholder="example@gmail.com")
-		.input-group.contact__input
-			.input-group-addon
-				i.fa.fa-mobile.fa-lg
-			input.form-control(type="text" id="InputPhone" ng-model="user.tel" placeholder="+7 978 657 75 64")
-	.row
-		b Изображение
-		.form-group
-			input(type="file" nv-file-select="" uploader="uploader" filtres="imageFilter")
-
-	p(ng-hide="true") {{user.img = uploader.queue[0].file.name}}
-	button.btn.btn-success(type="submit" ng-disabled="!user" ng-click="contactsAdd(user);uploader.queue[0].upload()") Добавить
-	button.btn.btn-warning(type="submit" ng-click="goBack()") Отменить
+i.page__back.fa.fa-reply.fa-2x(ng-click="goBack()")
+.page__content
+	form
+		.right-column
+			.form-group
+				label(for="InputName") Имя
+				input.form-control(type="text" name="InputName" ng-model="user.name" placeholder="Имя контакта")
+			.form-group
+				label(for="InputLastName") Фамилия
+				input.form-control(type="text" name="InputLastName" ng-model="user.lastname" placeholder="Фамилия контакта")
+			b Контактная информация
+			.form-group
+				.input-group.contact__input
+					.input-group-addon
+						i.fa.fa-envelope
+					input.form-control(type="text" id="InputMail" ng-model="user.mail" placeholder="example@gmail.com")
+			.form-group
+				.input-group.contact__input
+					.input-group-addon
+						i.fa.fa-mobile.fa-lg
+					input.form-control(type="text" id="InputPhone" ng-model="user.tel" placeholder="+7 978 657 75 64")
+		.image-column
+			b Изображение
+			.form-group
+				input(type="file" nv-file-select="" uploader="uploader" filtres="imageFilter")
+		.button-group
+			p(ng-hide="true") {{user.img = uploader.queue[0].file.name}}
+			button.btn.btn-success(type="submit" ng-disabled="!user" ng-click="contactsAdd(user);uploader.queue[0].upload()") Добавить

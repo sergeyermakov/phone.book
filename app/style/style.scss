@@ -1,6 +1,61 @@
 body{
   background: url("img/bg.jpg") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+.page{
+  width: 800px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.page__content{
+  padding: 10px 5px;
+  background: #edebed;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.page__content table{
+  margin-bottom: 0;
+}
+.page__icon{
+  float: right;
+  margin-left: 15px;
+  color: #BD9CB3;
+  cursor: pointer;
+}
+.page__icon.active{
+  color: #8A5C96;
+}
+
+.container table{
+}
+
+.page__content__item{
+  width: 135px;
+  height: 190px;
+  float: left;
+  overflow: hidden;
+  margin: 0 10px 10px 7px;
+  cursor: pointer;
+}
+.page__content__item:nth-child(5n){
+  margin: 0 0 10px 7px;
+}
+.page__content__item img{
+  width: 130px;
+  height: 130px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto 10px;
+}
+.page__content__item:hover img{
+  border: 1px solid #9932CC;
+}
+.page__content__item p{
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 .container a.btn{
   margin-bottom: 5px;
@@ -9,10 +64,34 @@ body{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.container table{
-  background: #edebed;
+.form-group{
+  width: 300px;
 }
-
+.right-column{
+  float: right;
+  margin-right: 10px;
+}
+.button-group{
+  margin-left: 10px;
+}
+.image-column{
+  min-height: 212px;
+  margin-left: 10px;
+}
+.image-column img{
+  display: block;
+  width: 130px;
+  height: 130px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border: 1px solid #444444;
+  border-radius: 4px;
+}
+.page__back{
+  color: rgba(255, 255, 255, 0.89);
+  cursor: pointer;
+}
 .input-group-addon{
   min-width: 40px;
 }

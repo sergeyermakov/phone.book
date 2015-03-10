@@ -1,8 +1,8 @@
 h3.text-center {{title}}
 a.btn.btn-default(href="#/new" role="button") Добавить
-button.btn.btn-default( ng-click="table = true") Таблица
-button.btn.btn-default( ng-click="table = false") Блоки
-div(ng-show="table")
+i.page__icon.fa.fa-list.fa-2x(ng-class="{active: table}" ng-click="table = true")
+i.page__icon.fa.fa-th.fa-2x(ng-class="{active: !table}" ng-click="table = false")
+.page__content(ng-show="table")
 	table.table.table-bordered.table-hover
 		thead
 			tr
@@ -18,10 +18,8 @@ div(ng-show="table")
 				td {{user.lastname}}
 				td {{user.tel}}
 				td {{user.mail}}
-div(ng-show="!table")
-	div(ng-repeat="user in contacts" ng-click="goUser(user.$id)")
-				p {{$index+1}}
-				p {{user.name}}
-				p {{user.lastname}}
+.page__content(ng-show="!table")
+	.page__content__item(ng-repeat="user in contacts" ng-click="goUser(user.$id)")
+				img(ng-src="./uploads/{{user.img}}")
+				p {{user.name}} {{user.lastname}}
 				p {{user.tel}}
-				p {{user.mail}}
