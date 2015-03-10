@@ -25,7 +25,7 @@ i.page__back.fa.fa-reply.fa-2x(ng-click="goBack()")
 			img(ng-hide="hide" ng-src="./uploads/{{user.img}}" alt="Загрузка...")
 			.form-group
 				input(type="file" nv-file-select="" uploader="uploader" filtres="imageFilter")
-			p(ng-hide="true") {{user.img = uploader.queue[0].file.name; hide = false}}
+			p(ng-hide="true") {{(uploader.queue[0].file.name)?user.img = uploader.queue[0].file.name: user.img = user.img ; hide = false}}
 		.button-group
 			button.btn.btn-success(type="submit" ng-click="contactsEdit(user);uploader.queue[0].upload()") Сохранить
 			button.btn.btn-danger(type="submit" ng-click="contactsDel()") Удалить контакт
